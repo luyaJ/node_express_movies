@@ -1,3 +1,6 @@
+/*
+* 模型
+*/
 var mongoose = require('mongoose');
 // 拿到导出的数据集模块
 var MovieSchema = require('../schemas/movie');

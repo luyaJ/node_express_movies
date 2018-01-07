@@ -1,3 +1,6 @@
+/*
+* 模式
+*/
 var mongoose = require('mongoose');
 
 // 放与电影有关的条目信息
