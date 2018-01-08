@@ -10,13 +10,15 @@ exports.detail = function (req, res) {
   var id = req.params.id;
   // 在模式中定义好静态方法
   Movie.findById(id, function (err, movie) {
-    Comment.find({movie: id}, function(err, comments) {
-      console.log(comments);
-      res.render('detail', {
-        // title: 'movieWeb ' + movie.title,
-        title: 'movieWeb',
-        movie: movie,
-        comments: comments
+    Comment
+      .find({movie: id})
+      .populate('from', 'name')
+      .populate('reply.from reply.to', 'name')      
+      .exec(function(err, comments) {
+        res.render('detail', {
+          title: 'movieWeb 详情页',
+          movie: movie,
+          comments: comments
       });
     });   
   });
