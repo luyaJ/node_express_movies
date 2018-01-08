@@ -1,0 +1,35 @@
+{
+  "name": "20180102movies",
+  "version": "1.0.0",
+  "description": "首先在根目录下安装：\r ```bash\r npm install express pug moment mongoose\r npm install bower -g\r bower install bootstrap\r # 上面这条命令在windows环境下，出现错Bower : ENOGIT git is not installed or not in the PATH，最简单的方法就是使用git bash来代替cmd\r ```",
+  "main": "app.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "connect": "^3.6.5",
+    "connect-mongo": "^2.0.1",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^3.21.2",
+    "express-error-handler": "^1.1.0",
+    "express-session": "^1.15.6",
+    "make": "^0.8.1",
+    "moment": "^2.20.1",
+    "mongoose": "^5.0.0-rc0",
+    "node-pre-gyp": "^0.6.39",
+    "pug": "^2.0.0-rc.4",
+    "python": "0.0.4",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-nodemon": "^0.4.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
