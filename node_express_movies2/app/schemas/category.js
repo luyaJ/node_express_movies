@@ -1,25 +1,10 @@
-/*
-* 模式
-*/
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
 
-// 放与电影有关的条目信息
-var MovieSchema = new Schema({
-  doctor: String,
-  title: String,
-  language: String,
-  country: String,
-  summary: String,
-  flash: String,
-  poster: String,
-  year: Number,
-  category: {
-    type: ObjectId,
-    ref: 'Category'
-  },
-  // 创建及更新时间
+var CategorySchema = new Schema({
+  name: String,
+  movies: [{type: ObjectId, ref: 'Movie'}], 
   meta: {
     createAt: {
       type: Date,
@@ -33,7 +18,7 @@ var MovieSchema = new Schema({
 });
 
 // 每次存储数据之前，我们都调用一下这个方法
-MovieSchema.pre('save', function(next){
+CategorySchema.pre('save', function(next){
   // 如果是新加的
   if(this.isNew) {
     this.meta.createAt = this.meta.updateAt = Date.now()
@@ -44,7 +29,7 @@ MovieSchema.pre('save', function(next){
 })
 
 // 查询静态方法
-MovieSchema.statics = {
+CategorySchema.statics = {
   // 用来取出当前数据库所有数据
   fetch: function(cb){
     return this
@@ -60,4 +45,4 @@ MovieSchema.statics = {
   }
 };
 
-module.exports = MovieSchema;
+module.exports = CategorySchema;
