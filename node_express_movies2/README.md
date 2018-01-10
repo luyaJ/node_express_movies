@@ -70,3 +70,34 @@ $ npm install connect-mongo --save
 var mongoStore = require('connect-mongo')(express);
 # 在cookieSession中配置
 ```
+
+## 单元测试
+
+安装mocha：
+```bash
+$ npm install grunt-mocha-test --save
+```
+
+在gruntfile.js中加载模块：
+```bash
+grunt.loadNpmTasks('grunt-mocha-test');  
+
+# 注册任务
+grunt.registerTask('test', ['mochaTest']);
+
+# 配置任务
+mochaTest: {
+    options: {
+    reporter: 'spec'
+    },
+    src: ['test/**/*.js']
+}
+```
+
+接着在根目录下新建文件`/test/user/user.js`,写测试用例。
+
+安装should：
+```bash
+$ npm install should --save
+```
+
